@@ -1,0 +1,899 @@
+<!DOCTYPE html><html lang="en"><head><meta charSet="utf-8"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@500;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" data-precedence="default"/><link rel="stylesheet" href="/assets/styles-NTL0jLd5.css" data-precedence="default"/><title>Nexus HRMS — Modern Human Resources Platform</title><meta name="author" content="Lovable"/><meta property="og:type" content="website"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:site" content="@Lovable"/><meta name="description" content="Nexus HRMS is a premium HR platform for attendance, leave, payroll, recruitment and performance management."/><meta property="og:title" content="Nexus HRMS — Modern Human Resources Platform"/><meta property="og:description" content="Manage employees, attendance, leave, payroll, recruitment and performance in one polished workspace."/><link rel="modulepreload" href="/assets/index-CMyvCMRG.js"/><link rel="modulepreload" href="/assets/routes-C6tBpSR4.js"/><link rel="preconnect" href="https://fonts.googleapis.com"/><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous"/><link rel="icon" href="/favicon.ico" type="image/x-icon"/><script>try{var t=localStorage.getItem('nexus-theme')||(window.matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light');if(t==='dark')document.documentElement.classList.add('dark');}catch(e){}</script>
+<style>
+	@font-face {
+		font-family: 'CameraPlainVariable';
+		src: url('https://cdn.gpteng.co/mcp-widgets/v1/fonts/CameraPlainVariable.woff2') format('woff2');
+		font-weight: 100 900;
+		font-style: normal;
+		font-display: swap;
+	}
+
+	#lovable-badge {
+		--badge-bg: #1b1b1b;
+		--badge-text: #c5c1b9;
+		--badge-text-hover: #dcdad5;
+		--badge-radius: 6px;
+		--badge-padding: 8px;
+		--badge-gap: 6px;
+		--badge-shadow: 
+			0 0 0 1px rgba(0, 0, 0, 0.88),
+			0 1px 0 0 rgba(0, 0, 0, 0.04),
+			0 2px 2px -1px rgba(0, 0, 0, 0.08),
+			0 4px 4px -2px rgba(0, 0, 0, 0.08),
+			0 8px 8px -4px rgba(0, 0, 0, 0.08),
+			0 16px 16px -8px rgba(0, 0, 0, 0.08);
+		--badge-transition-duration: 0.2s;
+		--badge-transition-easing: cubic-bezier(0.16, 1, 0.32, 1);
+		--focus-color: #575ECF;
+		--focus-offset: 2px;
+		--focus-width: 2px;
+		
+		position: fixed;
+		bottom: 12px;
+		right: 12px;
+		height: 24px;
+		display: flex;
+		align-items: center;
+		z-index: 1000000;
+		background-color: var(--badge-bg) !important;
+		color: var(--badge-text) !important;
+		border-radius: var(--badge-radius);
+		box-shadow: var(--badge-shadow) !important;
+		font-size: 12px;
+		font-family: CameraPlainVariable, "CameraPlainVariable Fallback", -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+		font-weight: 400 !important;
+		text-transform: none !important;
+		font-feature-settings: normal !important;
+		transform: translateZ(0);
+		will-change: transform, opacity;
+	}
+
+	#lovable-badge-cta {
+		display: flex;
+		align-items: center;
+		gap: var(--badge-gap);
+		padding: 0 var(--badge-padding);
+		height: 100%;
+		color: inherit;
+		text-decoration: none;
+		white-space: nowrap;
+		border-radius: var(--badge-radius) 0 0 var(--badge-radius);
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-cta:hover {
+		background: rgba(255, 255, 255, 0.04);
+		color: var(--badge-text-hover);
+	}
+
+	#lovable-badge-cta:active {
+		transform: scale(0.98);
+	}
+
+	#lovable-badge-cta:focus {
+		outline: none;
+	}
+
+	#lovable-badge-cta:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: var(--focus-offset);
+		z-index: 1;
+	}
+
+	#lovable-badge-text {
+		line-height: 1;
+	}
+
+	#lovable-badge-divider {
+		width: 1px;
+		height: 24px;
+		background-color: rgba(255, 255, 255, 0.04);
+		flex-shrink: 0;
+	}
+
+	#lovable-badge-close {
+		width: 24px;
+		height: 24px;
+		min-width: 24px;
+		min-height: 24px;
+		cursor: pointer;
+		background: none;
+		border: none;
+		padding: 0;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		border-radius: 0 var(--badge-radius) var(--badge-radius) 0;
+		flex-shrink: 0;
+		transition: 
+			background-color var(--badge-transition-duration) ease,
+			transform 0.1s ease;
+	}
+
+	#lovable-badge-close:hover {
+		background: rgba(255, 255, 255, 0.04);
+	}
+
+	#lovable-badge-close:active {
+		transform: scale(0.92);
+	}
+
+	#lovable-badge-close:focus {
+		outline: none;
+	}
+
+	#lovable-badge-close:focus-visible {
+		outline: var(--focus-width) solid var(--focus-color);
+		outline-offset: calc(var(--focus-offset) * -1);
+		z-index: 1;
+	}
+
+	#lovable-badge-close svg path {
+		fill: var(--badge-text);
+		transition: fill var(--badge-transition-duration) ease;
+	}
+
+	#lovable-badge-close:hover svg path {
+		fill: var(--badge-text-hover);
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		#lovable-badge-cta,
+		#lovable-badge-close,
+		#lovable-badge-close svg path {
+			transition: none;
+		}
+		
+		#lovable-badge-cta:active,
+		#lovable-badge-close:active {
+			transform: none;
+		}
+	}
+
+	@media (prefers-contrast: high) {
+		#lovable-badge {
+			--badge-bg: #000;
+			--badge-text: #fff;
+			--badge-text-hover: #fff;
+			border: 2px solid currentColor;
+		}
+		
+		#lovable-badge-cta:focus-visible,
+		#lovable-badge-close:focus-visible {
+			outline-width: 3px;
+		}
+	}
+</style>
+<script defer src="/~flock.js" data-proxy-url="/~api/analytics"></script><meta name="twitter:title" content="Nexus HRMS — Modern Human Resources Platform"><meta name="twitter:description" content="Manage employees, attendance, leave, payroll, recruitment and performance in one polished workspace."><meta property="og:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/619dddbe3314b378c7b5f15164b0fb03/id-preview-b87fd55b--52975891-72cc-44a3-bc2d-c0922464b9df.lovable.app-1786774185960.png"><meta name="twitter:image" content="https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/619dddbe3314b378c7b5f15164b0fb03/id-preview-b87fd55b--52975891-72cc-44a3-bc2d-c0922464b9df.lovable.app-1786774185960.png">
+<style>
+  html.dark {
+    --background: oklch(15.5% 0.024 274); /* Midnight Slate */
+    --surface: oklch(19.6% 0.026 274); /* Deep Slate Navy */
+    --surface-2: oklch(23% 0.028 274); /* Elevated Slate */
+    --primary: oklch(65% 0.18 285); /* Vivid Slate Blue */
+    --primary-soft: oklch(28% 0.065 283); 
+    --primary-strong: oklch(78% 0.13 287);
+    --accent-teal: oklch(75% 0.11 195); /* Bright Mint */
+    --foreground: oklch(96.5% 0.006 275); /* Frost White */
+    --muted-foreground: oklch(72% 0.024 272); /* Slate Muted */
+    --border: oklch(100% 0 0/0.11); /* Slate Outline */
+    --sidebar: oklch(17.6% 0.025 274);
+  }
+  
+  /* Global smooth transition */
+  *, *::before, *::after {
+    transition: background-color 0.4s ease, border-color 0.4s ease, color 0.4s ease !important;
+  }
+  
+  /* Force hide lovable badge */
+  #lovable-badge, aside[aria-label="Edit with Lovable"] {
+    display: none !important;
+  }
+  
+  /* Change cursor to pointer for options */
+  li, button, a, [role="button"], [role="menuitem"], [role="option"], [role="tab"], .hover\:bg-surface {
+    cursor: pointer !important;
+  }
+  
+  /* Copilot FAB (Smaller & Circular) */
+  #copilot-fab {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    width: 52px;
+    height: 52px;
+    background: linear-gradient(135deg, var(--primary), var(--primary-strong));
+    color: var(--primary-foreground);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.3);
+    z-index: 999998;
+    transition: transform 0.2s ease, box-shadow 0.2s ease !important;
+    border: none;
+  }
+  #copilot-fab:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  }
+
+  /* Copilot Overlay Window */
+  #copilot-overlay {
+    position: fixed;
+    bottom: 90px;
+    right: 24px;
+    width: 440px;
+    height: 720px;
+    max-height: 85vh;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    z-index: 999999;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+    pointer-events: none;
+    transition: opacity 0.3s cubic-bezier(0.16, 1, 0.3, 1), transform 0.3s cubic-bezier(0.16, 1, 0.3, 1) !important;
+    transform-origin: bottom right;
+  }
+  #copilot-overlay.open {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    pointer-events: auto;
+  }
+  #copilot-header {
+    padding: 16px;
+    background: var(--surface-2);
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--foreground);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  #copilot-close {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #copilot-close:hover {
+    background: var(--primary-soft);
+    color: var(--primary-strong);
+  }
+  
+  #copilot-chat {
+    flex: 1;
+    padding: 16px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    color: var(--foreground);
+    font-size: 0.9rem;
+    background: var(--background);
+  }
+  .msg-user {
+    align-self: flex-end;
+    background: var(--primary);
+    color: var(--primary-foreground);
+    padding: 10px 14px;
+    border-radius: 14px 14px 0 14px;
+    max-width: 85%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+  .msg-bot {
+    align-self: flex-start;
+    background: var(--surface);
+    padding: 12px 14px;
+    border-radius: 14px 14px 14px 0;
+    border: 1px solid var(--border);
+    max-width: 95%;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    line-height: 1.5;
+  }
+  
+  /* Suggestions Box */
+  #copilot-suggestions {
+    display: flex;
+    gap: 8px;
+    padding: 10px 16px 14px 16px;
+    background: var(--surface-2);
+    border-top: 1px solid var(--border);
+    overflow-x: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-soft) transparent;
+  }
+  #copilot-suggestions::-webkit-scrollbar {
+    height: 6px;
+  }
+  #copilot-suggestions::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  #copilot-suggestions::-webkit-scrollbar-thumb {
+    background-color: var(--primary-soft);
+    border-radius: 10px;
+  }
+  #copilot-suggestions::-webkit-scrollbar-thumb:hover {
+    background-color: var(--primary);
+  }
+  .suggestion-chip {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted-foreground);
+    padding: 6px 12px;
+    border-radius: 16px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    cursor: pointer;
+    transition: all 0.2s ease !important;
+  }
+  .suggestion-chip:hover {
+    background: var(--primary-soft);
+    color: var(--primary-strong);
+    border-color: var(--primary-strong);
+  }
+
+  #copilot-input-container {
+    padding: 14px;
+    background: var(--surface-2);
+    display: flex;
+    gap: 10px;
+    align-items: center;
+  }
+  #copilot-input {
+    flex: 1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--foreground);
+    padding: 10px 14px;
+    border-radius: 20px;
+    outline: none;
+    transition: border-color 0.2s !important;
+  }
+  #copilot-input:focus {
+    border-color: var(--primary);
+  }
+  #copilot-submit {
+    background: var(--primary);
+    color: var(--primary-foreground);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  }
+  #copilot-submit:hover {
+    opacity: 0.9;
+  }
+
+  /* Custom Dropdowns */
+  .nexus-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 8px;
+    width: 280px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    z-index: 99999;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.2s ease, transform 0.2s ease !important;
+  }
+  .nexus-dropdown.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+  }
+  .dropdown-header {
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    font-weight: 600;
+    color: var(--foreground);
+  }
+  .dropdown-item {
+    padding: 10px 16px;
+    color: var(--foreground);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .dropdown-item:hover {
+    background: var(--surface-2);
+  }
+  .dropdown-item svg {
+    color: var(--muted-foreground);
+  }
+  .dropdown-footer {
+    border-top: 1px solid var(--border);
+    padding: 10px 16px;
+    text-align: center;
+    color: var(--primary);
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+  }
+  .dropdown-footer:hover {
+    background: var(--surface-2);
+  }
+</style>
+
+
+<script>
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.getRegistrations().then(function(registrations) {
+      for(let registration of registrations) {
+        registration.unregister();
+      } 
+    });
+  }
+</script>
+</head><body><!--$--><div class="min-h-screen bg-surface"><aside class="fixed inset-y-0 left-0 z-20 hidden w-64 flex-col border-r border-border bg-card px-4 py-6 lg:flex"><div class="flex items-center gap-2.5 px-2"><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary text-primary-foreground"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-hexagon" aria-hidden="true"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path></svg></span><div><p class="text-sm font-semibold tracking-tight text-foreground">Nexus HRMS</p><p class="text-xs text-muted-foreground">Acme Global</p></div></div><nav class="mt-8 space-y-1"><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 bg-primary text-primary-foreground shadow-[var(--shadow-card)]"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-gauge" aria-hidden="true"><path d="m12 14 4-4"></path><path d="M3.34 19a10 10 0 1 1 17.32 0"></path></svg>Dashboard</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>Employees</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-check" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="m9 16 2 2 4-4"></path></svg>Attendance</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-calendar-days" aria-hidden="true"><path d="M8 2v4"></path><path d="M16 2v4"></path><rect width="18" height="18" x="3" y="4" rx="2"></rect><path d="M3 10h18"></path><path d="M8 14h.01"></path><path d="M12 14h.01"></path><path d="M16 14h.01"></path><path d="M8 18h.01"></path><path d="M12 18h.01"></path><path d="M16 18h.01"></path></svg>Leave &amp; Absence</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-wallet" aria-hidden="true"><path d="M19 7V4a1 1 0 0 0-1-1H5a2 2 0 0 0 0 4h15a1 1 0 0 1 1 1v4h-3a2 2 0 0 0 0 4h3a1 1 0 0 0 1-1v-2a1 1 0 0 0-1-1"></path><path d="M3 5v14a2 2 0 0 0 2 2h15a1 1 0 0 0 1-1v-4"></path></svg>Payroll</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-search" aria-hidden="true"><circle cx="10" cy="7" r="4"></circle><path d="M10.3 15H7a4 4 0 0 0-4 4v2"></path><circle cx="17" cy="17" r="3"></circle><path d="m21 21-1.9-1.9"></path></svg>Recruitment</button><button type="button" class="flex w-full items-center gap-3 rounded-xl px-3 py-2.5 text-sm font-medium transition-all duration-200 text-muted-foreground hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-target" aria-hidden="true"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="12" r="6"></circle><circle cx="12" cy="12" r="2"></circle></svg>Performance</button></nav><div class="mt-auto rounded-2xl bg-primary-soft p-4"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles text-primary-strong" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg><p class="mt-2 text-sm font-semibold text-foreground">Nexus Copilot</p><p class="mt-1 text-xs text-muted-foreground">Auto-draft appraisals and payroll summaries in seconds.</p></div></aside><div class="lg:pl-64"><header class="sticky top-0 z-10 flex items-center gap-3 border-b border-border bg-card/85 px-4 py-3 backdrop-blur-md sm:px-6"><div class="relative w-full max-w-sm"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search pointer-events-none absolute left-3 top-1/2 -translate-y-1/2 text-muted-foreground" aria-hidden="true"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg><input type="search" placeholder="Search people, roles, payslips…" class="w-full rounded-xl border border-border bg-surface py-2 pl-9 pr-3 text-sm text-foreground outline-none transition-colors placeholder:text-muted-foreground focus:border-primary/50 focus:ring-2 focus:ring-ring/25"/></div><div class="ml-auto flex items-center gap-1.5"><button class="relative rounded-xl p-2.5 text-muted-foreground transition-colors hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bell" aria-hidden="true"><path d="M10.268 21a2 2 0 0 0 3.464 0"></path><path d="M3.262 15.326A1 1 0 0 0 4 17h16a1 1 0 0 0 .74-1.673C19.41 13.956 18 12.499 18 8A6 6 0 0 0 6 8c0 4.499-1.411 5.956-2.738 7.326"></path></svg><span class="absolute right-2 top-2 h-2 w-2 rounded-full bg-destructive"></span></button><button class="rounded-xl p-2.5 text-muted-foreground transition-colors hover:bg-primary-soft hover:text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings" aria-hidden="true"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg></button><span class="ml-2 flex h-9 w-9 items-center justify-center rounded-full bg-primary text-xs font-semibold text-primary-foreground">SM</span></div></header><nav class="flex gap-2 overflow-x-auto border-b border-border bg-card px-4 py-2 lg:hidden"><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors bg-primary text-primary-foreground">Dashboard</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Employees</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Attendance</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Leave &amp; Absence</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Payroll</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Recruitment</button><button type="button" class="whitespace-nowrap rounded-lg px-3 py-1.5 text-xs font-medium transition-colors text-muted-foreground hover:bg-primary-soft">Performance</button></nav><main class="px-4 py-6 sm:px-6 lg:px-8"><div class="space-y-6"><div class="flex flex-wrap items-end justify-between gap-4"><div><span class="inline-flex items-center gap-1.5 rounded-full bg-primary-soft px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary-strong">Overview</span><h1 class="mt-3 text-[27px] font-semibold leading-tight text-foreground">Good morning, Sofia</h1><p class="mt-1.5 text-sm text-muted-foreground">Friday, 14 August 2026 · company-wide snapshot</p></div><div class="flex items-center gap-2"><button type="button" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 border border-border bg-card text-foreground hover:border-primary/40 hover:bg-primary-soft"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download" aria-hidden="true"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg> Export</button><button type="button" class="inline-flex items-center gap-2 rounded-xl px-4 py-2 text-sm font-medium transition-all duration-200 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring/40 brand-gradient text-primary-foreground shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-lift)] hover:brightness-110"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sparkles" aria-hidden="true"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg> Ask Copilot</button></div></div><div class="grid gap-4 lg:grid-cols-6"><div class="rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] surface-panel relative overflow-hidden p-6 lg:col-span-2 lg:row-span-2"><div class="grid-noise pointer-events-none absolute inset-0 opacity-40"></div><div class="relative"><span class="inline-flex items-center gap-1.5 rounded-full bg-primary-soft px-2.5 py-1 text-[11px] font-semibold uppercase tracking-[0.14em] text-primary-strong">Headcount</span><p class="mt-5 font-display text-[52px] font-semibold leading-none tracking-tight text-foreground">124</p><p class="mt-2 text-sm text-muted-foreground">people across <!-- -->4<!-- --> departments in 6 locations</p><div class="mt-6 space-y-3"><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Engineering</span><span class="text-muted-foreground">58</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700" style="width:46.774193548387096%;background:var(--chart-1)"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Sales</span><span class="text-muted-foreground">31</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700" style="width:25%;background:var(--chart-2)"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">HR</span><span class="text-muted-foreground">14</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700" style="width:11.29032258064516%;background:var(--chart-3)"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Marketing</span><span class="text-muted-foreground">21</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700" style="width:16.93548387096774%;background:var(--chart-4)"></div></div></div></div><div class="mt-6 rounded-2xl border border-border bg-card/70 p-4"><p class="text-xs font-semibold text-foreground">Payroll run · <!-- -->28 Aug 2026</p><p class="mt-1 text-xs text-muted-foreground">Net $<!-- -->641,900<!-- --> for <!-- -->124<!-- --> employees</p></div></div></div><div class="grid gap-4 sm:grid-cols-2 lg:col-span-4 xl:grid-cols-4"><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5"><div class="flex items-start justify-between"><p class="text-sm font-medium text-muted-foreground">Total Employees</p><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg></span></div><p class="mt-4 font-display text-[30px] font-semibold leading-none tracking-tight text-foreground">124</p><p class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-success"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>+12%<span class="font-normal text-muted-foreground">vs last week</span></p></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5"><div class="flex items-start justify-between"><p class="text-sm font-medium text-muted-foreground">Present Today</p><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-timer" aria-hidden="true"><line x1="10" x2="14" y1="2" y2="2"></line><line x1="12" x2="15" y1="14" y2="11"></line><circle cx="12" cy="14" r="8"></circle></svg></span></div><p class="mt-4 font-display text-[30px] font-semibold leading-none tracking-tight text-foreground">112</p><p class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-success"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-up-right" aria-hidden="true"><path d="M7 7h10v10"></path><path d="M7 17 17 7"></path></svg>+2%<span class="font-normal text-muted-foreground">vs last week</span></p></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5"><div class="flex items-start justify-between"><p class="text-sm font-medium text-muted-foreground">On Leave</p><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-user-minus" aria-hidden="true"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><line x1="22" x2="16" y1="11" y2="11"></line></svg></span></div><p class="mt-4 font-display text-[30px] font-semibold leading-none tracking-tight text-foreground">12</p><p class="mt-3 inline-flex items-center gap-1 text-xs font-semibold text-destructive"><svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-down-right" aria-hidden="true"><path d="m7 7 10 10"></path><path d="M17 7v10H7"></path></svg>-5%<span class="font-normal text-muted-foreground">vs last week</span></p></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5"><div class="flex items-start justify-between"><p class="text-sm font-medium text-muted-foreground">Open Roles</p><span class="flex h-9 w-9 items-center justify-center rounded-xl bg-primary-soft text-primary-strong"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-briefcase" aria-hidden="true"><path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"></path><rect width="20" height="14" x="2" y="6" rx="2"></rect></svg></span></div><p class="mt-4 font-display text-[30px] font-semibold leading-none tracking-tight text-foreground">8</p><p class="mt-3 text-xs text-muted-foreground">3 in final stage</p></div></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5 lg:col-span-4"><div><h2 class="text-sm font-semibold text-foreground">Weekly Attendance</h2><p class="mt-0.5 text-xs text-muted-foreground">Present vs absent headcount</p></div><div class="mt-5 h-64"><div class="recharts-responsive-container" style="width:100%;height:100%;min-width:0"></div></div></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5 lg:col-span-3"><div><h2 class="text-sm font-semibold text-foreground">Department Distribution</h2><p class="mt-0.5 text-xs text-muted-foreground">124 employees across 4 departments</p></div><div class="mt-2 h-64"><div class="recharts-responsive-container" style="width:100%;height:100%;min-width:0"></div></div></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5 lg:col-span-3"><div><h2 class="text-sm font-semibold text-foreground">Hiring Funnel</h2><p class="mt-0.5 text-xs text-muted-foreground">210 applicants · Q3 2026</p></div><div class="mt-5 space-y-4"><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Applied</span><span class="text-muted-foreground">210</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700 bg-primary" style="width:100%"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Screening</span><span class="text-muted-foreground">96</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700 bg-primary" style="width:46%"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Interview</span><span class="text-muted-foreground">41</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700 bg-primary" style="width:20%"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Offer</span><span class="text-muted-foreground">12</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700 bg-primary" style="width:6%"></div></div></div><div><div class="mb-1.5 flex items-center justify-between text-xs"><span class="font-medium text-foreground">Hired</span><span class="text-muted-foreground">5</span></div><div class="h-1.5 w-full overflow-hidden rounded-full bg-surface-2"><div class="h-full rounded-full transition-[width] duration-700 bg-success" style="width:2%"></div></div></div></div></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5 lg:col-span-4"><div><h2 class="text-sm font-semibold text-foreground">Recent Activity</h2><p class="mt-0.5 text-xs text-muted-foreground">Across people operations</p></div><ul class="mt-4 space-y-3"><li class="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-surface"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">SM</span><div class="min-w-0"><p class="text-sm text-foreground"><span class="font-semibold">Sofia Marchetti</span> <span class="text-muted-foreground">approved annual leave for Jonah Whitaker</span></p><p class="mt-0.5 text-xs text-muted-foreground">12m ago</p></div></li><li class="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-surface"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">NK</span><div class="min-w-0"><p class="text-sm text-foreground"><span class="font-semibold">Neha Kapoor</span> <span class="text-muted-foreground">moved 3 candidates to Interview for Data Engineer</span></p><p class="mt-0.5 text-xs text-muted-foreground">48m ago</p></div></li><li class="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-surface"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">AO</span><div class="min-w-0"><p class="text-sm text-foreground"><span class="font-semibold">Amara Osei</span> <span class="text-muted-foreground">submitted Q3 appraisal for Priya Raghunathan</span></p><p class="mt-0.5 text-xs text-muted-foreground">2h ago</p></div></li><li class="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-surface"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">PB</span><div class="min-w-0"><p class="text-sm text-foreground"><span class="font-semibold">Payroll Bot</span> <span class="text-muted-foreground">generated 124 draft payslips for August</span></p><p class="mt-0.5 text-xs text-muted-foreground">5h ago</p></div></li><li class="flex items-start gap-3 rounded-xl p-2 transition-colors hover:bg-surface"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">MF</span><div class="min-w-0"><p class="text-sm text-foreground"><span class="font-semibold">Marcus Feldt</span> <span class="text-muted-foreground">published the Product Designer job posting</span></p><p class="mt-0.5 text-xs text-muted-foreground">Yesterday</p></div></li></ul></div><div class="relative rounded-2xl border border-border bg-card shadow-[var(--shadow-card)] transition-all duration-300 hover:-translate-y-0.5 hover:border-primary/25 hover:shadow-[var(--shadow-lift)] p-5 lg:col-span-2"><div><h2 class="text-sm font-semibold text-foreground">Upcoming Time Off</h2><p class="mt-0.5 text-xs text-muted-foreground">Next 3 weeks</p></div><ul class="mt-4 space-y-3"><li class="flex items-center gap-3 rounded-xl border border-border bg-surface p-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">PR</span><div class="min-w-0 flex-1"><p class="truncate text-sm font-medium text-foreground">Priya Raghunathan</p><p class="text-xs text-muted-foreground">12 – 16 Aug</p></div><span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold bg-warning-soft text-warning">Sick</span></li><li class="flex items-center gap-3 rounded-xl border border-border bg-surface p-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">JW</span><div class="min-w-0 flex-1"><p class="truncate text-sm font-medium text-foreground">Jonah Whitaker</p><p class="text-xs text-muted-foreground">18 – 29 Aug</p></div><span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold bg-primary-soft text-primary-strong">Annual</span></li><li class="flex items-center gap-3 rounded-xl border border-border bg-surface p-3"><span class="flex h-9 w-9 shrink-0 items-center justify-center rounded-xl bg-primary-soft text-xs font-semibold text-primary-strong ring-1 ring-inset ring-primary/15">TK</span><div class="min-w-0 flex-1"><p class="truncate text-sm font-medium text-foreground">Tomas Kowalski</p><p class="text-xs text-muted-foreground">22 – 26 Aug</p></div><span class="inline-flex items-center rounded-full px-2.5 py-1 text-xs font-semibold bg-muted text-muted-foreground">Unpaid</span></li></ul></div></div></div></main></div></div><script>(function(a,f){let l;try{l=JSON.parse(sessionStorage.getItem(a)||"{}")}catch{return}const n=l?.[f||history.state?.__TSR_key];let c=!1;for(const t in n){const e=n[t],o=e?.scrollX,s=e?.scrollY;if(Number.isFinite(o)&&Number.isFinite(s)){if(t==="window")scrollTo(o,s),c=!0;else if(t)try{const r=document.querySelector(t);r&&(r.scrollLeft=o,r.scrollTop=s)}catch{}}}if(c)return;const i=location.hash.slice(1);if(i){const t=history.state?.__hashScrollIntoViewOptions??!0;if(t){const e=document.getElementById(i);e&&e.scrollIntoView(t)}return}scrollTo(0,0)})("tsr-scroll-restoration-v1_3");document.currentScript.remove()</script><!--/$--><script class="$tsr" id="$tsr-stream-barrier">(self.$R=self.$R||{})["tsr"]=[];self.$_TSR={h(){this.hydrated=!0,this.c()},e(){this.streamEnded=!0,this.c()},c(){this.hydrated&&this.streamEnded&&(delete self.$_TSR,delete self.$R.tsr)},p(e){this.initialized?e():this.buffer.push(e)},buffer:[]};$_TSR.router=($R=>$R[0]={manifest:$R[1]={routes:$R[2]={__root__:$R[3]={preloads:$R[4]=["/assets/index-CMyvCMRG.js"],scripts:$R[5]=[$R[6]={attrs:$R[7]={type:"module",async:!0,src:"/assets/index-CMyvCMRG.js"}}]},"/":$R[8]={preloads:$R[9]=["/assets/routes-C6tBpSR4.js"]}}},matches:$R[10]=[$R[11]={i:"__root__ ",u:1787078068453,s:"success",ssr:!0},$R[12]={i:"  ",u:1787078068453,s:"success",ssr:!0}],lastMatchId:"  "})($R["tsr"]);$_TSR.e();document.currentScript.remove()</script><script type="module" async="" src="/assets/index-CMyvCMRG.js"></script>
+<aside
+	id="lovable-badge"
+	role="complementary"
+	dir="ltr"
+	lang="en"
+	aria-label="Edit with Lovable">
+	<a
+		id="lovable-badge-cta" 
+		target="_blank" 
+		href="https://lovable.dev/projects/lovp_64cw07k8239ymvywzap6e9t0br?utm_source=lovable-badge"
+		rel="noopener nofollow"
+		aria-label="Edit with Lovable">
+		<span id="lovable-badge-text">Edit with</span>
+		<svg xmlns="http://www.w3.org/2000/svg" width="52" height="16" fill="none" viewBox="0 0 52 16">
+  <path fill="#FCFBF8" fill-rule="evenodd" d="M20.318 5.25c.643 0 1.206.14 1.69.418a2.81 2.81 0 0 1 1.118 1.191c.266.513.4 1.115.4 1.807s-.134 1.296-.4 1.812a2.81 2.81 0 0 1-1.118 1.193c-.484.278-1.047.418-1.69.418s-1.208-.14-1.695-.418a2.85 2.85 0 0 1-1.125-1.193c-.262-.516-.393-1.12-.393-1.812s.131-1.294.393-1.807a2.848 2.848 0 0 1 1.125-1.191c.487-.279 1.052-.418 1.695-.418Zm0 1.425c-.27 0-.504.076-.7.228-.193.147-.34.37-.443.67-.102.295-.153.66-.153 1.093 0 .435.05.801.153 1.1.102.3.25.524.443.676.196.147.43.22.7.22.27 0 .502-.073.694-.22.193-.152.341-.375.443-.67.103-.299.153-.667.153-1.106 0-.65-.112-1.145-.337-1.481a1.08 1.08 0 0 0-.953-.51ZM32.7 5.25c.61 0 1.127.1 1.549.3.422.197.74.48.953.849.217.368.325.809.325 1.32v2.704c0 .29.02.562.062.812.044.245.108.4.19.466V12h-1.935a5.895 5.895 0 0 1-.105-.684 7.745 7.745 0 0 1-.02-.228 2.293 2.293 0 0 1-.151.203c-.205.242-.47.437-.793.584-.32.143-.685.215-1.094.215-.406 0-.77-.08-1.094-.24a1.845 1.845 0 0 1-.756-.682 1.984 1.984 0 0 1-.27-1.045c0-.606.178-1.069.535-1.388.356-.324.87-.534 1.542-.633l1.125-.16c.225-.032.403-.074.534-.123a.622.622 0 0 0 .288-.196.549.549 0 0 0 .093-.327.65.65 0 0 0-.11-.367.702.702 0 0 0-.32-.27c-.14-.07-.31-.105-.51-.105-.32 0-.576.083-.768.251-.193.164-.298.39-.314.676h-1.923c.016-.434.147-.82.393-1.155.25-.34.596-.604 1.039-.792.442-.189.954-.283 1.535-.283Zm.99 3.498a.98.98 0 0 1-.215.14 2.49 2.49 0 0 1-.584.178l-.473.092c-.315.061-.553.156-.713.283-.155.127-.233.305-.233.534 0 .23.084.412.252.547.168.135.383.203.645.203s.494-.058.694-.173c.201-.118.355-.282.461-.49.11-.21.166-.448.166-.714v-.6Zm4.526-2.375c.065-.125.138-.243.221-.349.197-.25.437-.44.719-.571.282-.135.6-.203.952-.203.528 0 .988.138 1.377.412.389.275.688.67.896 1.186.21.512.314 1.12.314 1.824 0 .7-.107 1.309-.32 1.825-.213.512-.518.906-.915 1.18-.393.275-.854.412-1.383.412-.352 0-.667-.062-.946-.184a1.832 1.832 0 0 1-.7-.554 2.2 2.2 0 0 1-.234-.383V12h-1.843V3h1.862v3.373Zm1.284.296c-.274 0-.51.085-.707.253-.192.163-.338.397-.436.7a3.376 3.376 0 0 0-.148 1.05c0 .406.05.759.148 1.058.098.299.243.53.436.694.197.164.433.246.707.246.279 0 .512-.082.7-.246.193-.164.336-.395.43-.694.099-.3.148-.652.148-1.058 0-.405-.05-.757-.147-1.056-.095-.299-.238-.53-.43-.694a1.015 1.015 0 0 0-.7-.253Zm9.416-1.419c.602 0 1.136.131 1.604.393.466.262.829.643 1.086 1.143.263.5.394 1.097.394 1.794 0 .25-.002.449-.006.596H47.51c.018.288.071.538.164.75a1.3 1.3 0 0 0 .491.596c.214.13.465.196.757.196.319 0 .583-.082.792-.246.209-.167.34-.403.393-.706h1.862a2.48 2.48 0 0 1-.485 1.235 2.54 2.54 0 0 1-1.051.805c-.439.188-.949.283-1.53.283-.655 0-1.225-.125-1.708-.375a2.672 2.672 0 0 1-1.13-1.143c-.267-.508-.4-1.137-.4-1.887 0-.712.14-1.327.418-1.843a2.86 2.86 0 0 1 1.155-1.186c.491-.27 1.051-.405 1.678-.405Zm-.044 1.345c-.274 0-.516.068-.725.203a1.29 1.29 0 0 0-.479.59 2.045 2.045 0 0 0-.132.498h2.562a1.873 1.873 0 0 0-.138-.602 1.061 1.061 0 0 0-.418-.516 1.243 1.243 0 0 0-.67-.173Z" clip-rule="evenodd"/>
+  <path fill="#FCFBF8" d="m26.605 9.995 1.342-4.566h1.924L27.628 12h-2.07l-2.33-6.57h1.98l1.397 4.565Zm-13.013.143h2.256c1.632 0 1.421 1.837 1.418 1.861h-5.603V3h1.93v7.138Zm31.516 1.861h-1.862V3h1.862v8.999Z"/>
+  <path fill="url(#a)" fill-rule="evenodd" d="M2.7 3c1.492 0 2.7 1.192 2.7 2.663v1.012h.9c1.49 0 2.7 1.192 2.7 2.662S7.791 12 6.3 12H0V5.663C0 4.193 1.209 3 2.7 3Z" clip-rule="evenodd"/>
+  <defs>
+    <radialGradient id="a" cx="0" cy="0" r="1" gradientTransform="matrix(-1.54236 7.07838 -10.231 -2.15602 4.627 5.022)" gradientUnits="userSpaceOnUse">
+      <stop offset=".106" stop-color="#FE7B02"/>
+      <stop offset=".394" stop-color="#FE3F21"/>
+      <stop offset=".608" stop-color="#F858BC"/>
+      <stop offset=".929" stop-color="#575ECF"/>
+    </radialGradient>
+  </defs>
+</svg>
+
+
+	</a>
+	
+	<span id="lovable-badge-divider" aria-hidden="true"></span>
+	
+	<button 
+		id="lovable-badge-close"
+		aria-label="Dismiss"
+		title="Dismiss"
+		type="button">
+		<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 16 16" aria-hidden="true">
+			<path d="M10.646 4.646a.5.5 0 1 1 .707.708L8.707 8l2.646 2.646a.5.5 0 1 1-.707.707L8 8.707l-2.646 2.646a.5.5 0 1 1-.708-.707L7.293 8 4.646 5.354a.5.5 0 1 1 .708-.708L8 7.293l2.646-2.647Z"/>
+		</svg>
+	</button>
+</aside>
+<script>
+	// Don't show the lovable-badge if the page is in an iframe or if it's being rendered by puppeteer (screenshot service)
+	if (window.self !== window.top || navigator.userAgent.includes('puppeteer')) {
+		var badge = document.getElementById('lovable-badge');
+		if (badge) {
+			badge.style.display = 'none';
+		}
+	}
+
+	// Add click event listener to close button with animation
+	var closeButton = document.getElementById('lovable-badge-close');
+	if (closeButton) {
+		closeButton.addEventListener('click', function(event) {
+			event.preventDefault();
+			event.stopPropagation();
+			var badge = document.getElementById('lovable-badge');
+			if (badge) {
+				badge.classList.add('closing');
+				setTimeout(function() {
+					if (badge) {
+						badge.style.display = 'none';
+					}
+				}, 240);
+			}
+		});
+	}
+</script>
+
+<script>
+  window.addEventListener('load', () => {
+      setTimeout(() => {
+          // Find notification bell
+          const bellSvg = document.querySelector('.lucide-bell');
+          if (!bellSvg) return;
+          const bellBtn = bellSvg.closest('button');
+          if (!bellBtn) return;
+          
+          const headerActions = bellBtn.parentElement;
+          headerActions.style.display = 'flex';
+          headerActions.style.alignItems = 'center';
+          headerActions.style.gap = '8px';
+          
+          // Create Dark Mode Toggle right beside bell
+          const themeBtn = document.createElement('button');
+          themeBtn.className = bellBtn.className;
+          
+          const updateIcon = () => {
+              const isDark = document.documentElement.classList.contains('dark');
+              themeBtn.innerHTML = isDark ? 
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-sun"><circle cx="12" cy="12" r="4"></circle><path d="M12 2v2"></path><path d="M12 20v2"></path><path d="m4.93 4.93 1.41 1.41"></path><path d="m17.66 17.66 1.41 1.41"></path><path d="M2 12h2"></path><path d="M20 12h2"></path><path d="m6.34 17.66-1.41 1.41"></path><path d="m19.07 4.93-1.41 1.41"></path></svg>' : 
+                  '<svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-moon"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path></svg>';
+          };
+          
+          themeBtn.onclick = () => {
+              if (document.documentElement.classList.contains('dark')) {
+                  document.documentElement.classList.remove('dark');
+                  localStorage.setItem('nexus-theme', 'light');
+              } else {
+                  document.documentElement.classList.add('dark');
+                  localStorage.setItem('nexus-theme', 'dark');
+              }
+              updateIcon();
+          };
+          updateIcon();
+          
+          // Add File Button
+          const uploadWrapper = document.createElement('div');
+          uploadWrapper.style.position = 'relative';
+          
+          const uploadBtn = document.createElement('label');
+          uploadBtn.className = "inline-flex items-center justify-center whitespace-nowrap text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50 border border-transparent shadow-sm h-9 px-4 py-2 rounded-xl bg-primary text-primary-foreground hover:opacity-90 cursor-pointer";
+          uploadBtn.innerHTML = "Add File";
+          
+          const fileInput = document.createElement('input');
+          fileInput.type = "file";
+          fileInput.style.display = "none";
+          fileInput.accept = ".csv,.json,.txt";
+          
+          fileInput.onchange = async (e) => {
+              const file = e.target.files[0];
+              if (!file) return;
+              
+              const formData = new FormData();
+              formData.append("file", file);
+              
+              const oldText = uploadBtn.innerHTML;
+              uploadBtn.innerHTML = "Uploading...";
+              try {
+                  const res = await fetch('http://localhost:8000/upload', {
+                      method: 'POST',
+                      body: formData
+                  });
+                  const data = await res.json();
+                  alert(data.message || data.error);
+              } catch (err) {
+                  alert("Upload failed. Is the python backend running?");
+              } finally {
+                  uploadBtn.innerHTML = oldText;
+                  fileInput.value = "";
+              }
+          };
+          
+          uploadBtn.appendChild(fileInput);
+          uploadWrapper.appendChild(uploadBtn);
+          
+          // Inject Dark Mode and Add File before bell
+          headerActions.insertBefore(uploadWrapper, bellBtn);
+          headerActions.insertBefore(themeBtn, bellBtn);
+
+          // Find other header buttons
+          const settingsSvg = document.querySelector('.lucide-settings');
+          const settingsBtn = settingsSvg ? settingsSvg.closest('button') : null;
+          
+          // The profile span contains 'SM' or is a span inside the header actions
+          const headerSpans = headerActions.querySelectorAll('span');
+          let profileBtn = null;
+          headerSpans.forEach(span => {
+              if (span.innerText.trim() === 'SM' || span.classList.contains('bg-primary')) {
+                  profileBtn = span;
+                  profileBtn.style.cursor = 'pointer';
+              }
+          });
+
+          // Close all dropdowns when clicking outside
+          document.addEventListener('click', (e) => {
+              document.querySelectorAll('.nexus-dropdown').forEach(d => {
+                  if (!d.contains(e.target) && d.parentElement && !d.parentElement.contains(e.target)) {
+                      d.classList.remove('open');
+                  }
+              });
+          });
+
+          const createDropdown = (parentBtn, width, htmlContent) => {
+              if (!parentBtn) return;
+              parentBtn.style.position = 'relative';
+              const dropdown = document.createElement('div');
+              dropdown.className = 'nexus-dropdown';
+              dropdown.style.width = width;
+              dropdown.innerHTML = htmlContent;
+              parentBtn.appendChild(dropdown);
+              
+              parentBtn.onclick = (e) => {
+                  e.stopPropagation();
+                  const isOpen = dropdown.classList.contains('open');
+                  // Close others
+                  document.querySelectorAll('.nexus-dropdown').forEach(d => d.classList.remove('open'));
+                  if (!isOpen) dropdown.classList.add('open');
+              };
+          };
+
+          // 1. Notification Dropdown
+          createDropdown(bellBtn, '320px', `
+              <div class="dropdown-header">Notifications (3)</div>
+              <div class="dropdown-item">
+                  <div style="flex:1">
+                      <p style="font-size:0.85rem;font-weight:600;margin:0">Server Reboot</p>
+                      <p style="font-size:0.75rem;color:var(--muted-foreground);margin:0">Your server has been updated successfully.</p>
+                  </div>
+              </div>
+              <div class="dropdown-item">
+                  <div style="flex:1">
+                      <p style="font-size:0.85rem;font-weight:600;margin:0">New Message</p>
+                      <p style="font-size:0.75rem;color:var(--muted-foreground);margin:0">Sofia requested annual leave.</p>
+                  </div>
+              </div>
+              <div class="dropdown-item">
+                  <div style="flex:1">
+                      <p style="font-size:0.85rem;font-weight:600;margin:0">Payroll Processed</p>
+                      <p style="font-size:0.75rem;color:var(--muted-foreground);margin:0">August payroll is complete.</p>
+                  </div>
+              </div>
+              <div class="dropdown-footer">Mark all as read</div>
+          `);
+
+          // 2. Settings Dropdown
+          createDropdown(settingsBtn, '240px', `
+              <div class="dropdown-header">System Settings</div>
+              <div class="dropdown-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>
+                  <span>Dashboard Layout</span>
+              </div>
+              <div class="dropdown-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>
+                  <span>Appearance</span>
+              </div>
+              <div class="dropdown-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>
+                  <span>Security & Privacy</span>
+              </div>
+          `);
+
+          // 3. Profile Dropdown
+          createDropdown(profileBtn, '220px', `
+              <div class="dropdown-header">
+                  <p style="margin:0;font-size:0.9rem">Sofia Marchetti</p>
+                  <p style="margin:0;font-size:0.75rem;color:var(--muted-foreground);font-weight:400">sofia@nexus.app</p>
+              </div>
+              <div class="dropdown-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                  <span>My Profile</span>
+              </div>
+              <div class="dropdown-item">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="14" x="2" y="5" rx="2"/><line x1="2" x2="22" y1="10" y2="10"/></svg>
+                  <span>Billing</span>
+              </div>
+              <div class="dropdown-footer" style="color:var(--destructive)">Log out</div>
+          `);
+
+          // Build Copilot FAB
+          const fab = document.createElement('button');
+          fab.id = 'copilot-fab';
+          fab.innerHTML = '<svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4"></path><path d="M12 18v4"></path><path d="M4.93 4.93l2.83 2.83"></path><path d="M16.24 16.24l2.83 2.83"></path><path d="M2 12h4"></path><path d="M18 12h4"></path><path d="M4.93 19.07l2.83-2.83"></path><path d="M16.24 7.76l2.83-2.83"></path></svg>';
+          document.body.appendChild(fab);
+
+          // Build Copilot Overlay
+          const overlay = document.createElement('div');
+          overlay.id = 'copilot-overlay';
+          overlay.innerHTML = `
+            <div id="copilot-header">
+                <div style="display: flex; align-items: center; gap: 8px;">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color: var(--primary)"><path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z"></path></svg>
+                    Nexus Text-to-SQL Copilot
+                </div>
+                <button id="copilot-close">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                </button>
+            </div>
+            <div id="copilot-chat">
+                <div class="msg-bot">Hi there! Try uploading a CSV with the "Add File" button above, then ask me to query it!</div>
+            </div>
+            <div id="copilot-suggestions">
+                <div class="suggestion-chip">Hi!</div>
+                <div class="suggestion-chip">What can you do?</div>
+                <div class="suggestion-chip">Average salary by department?</div>
+                <div class="suggestion-chip">Count all employees?</div>
+                <div class="suggestion-chip">Who is in Engineering?</div>
+                <div class="suggestion-chip">Who is the HR Manager?</div>
+                <div class="suggestion-chip">Who has the highest salary?</div>
+            </div>
+            <div id="copilot-input-container">
+                <input type="text" id="copilot-input" placeholder="Type a message..." autocomplete="off" />
+                <button id="copilot-submit">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg>
+                </button>
+            </div>
+          `;
+          // Helper to uniquely identify a row across different UI layouts
+          const getRowKey = (container) => {
+              let el = container;
+              while (el && el !== document.body) {
+                  if (el.tagName === 'TR' || el.tagName === 'LI') break;
+                  if (el.classList && el.classList.contains('flex') && el.innerText.length > 15 && el.innerText.length < 200) break;
+                  el = el.parentElement;
+              }
+              let text = (el || container).innerText.replace(/Approve/gi, '').replace(/Reject/gi, '');
+              return text.replace(/[^a-zA-Z0-9]/g, '').substring(0, 40);
+          };
+
+          // Hook up ALL App Buttons dynamically (Export, Copilot, Approve, Reject)
+          document.body.addEventListener('click', (e) => {
+              const btn = e.target.closest('button');
+              if (!btn) return;
+              
+              const text = btn.innerText.trim();
+              
+              if (text === 'Ask Copilot') {
+                  e.preventDefault();
+                  if (!overlay.classList.contains('open')) {
+                      overlay.classList.add('open');
+                      document.getElementById('copilot-input').focus();
+                  }
+              } else if (text === 'Export') {
+                  e.preventDefault();
+                  const oldText = btn.innerHTML;
+                  btn.innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><style>.spinner_P7sC{transform-origin:center;animation:spinner_svv2 .75s infinite linear}@keyframes spinner_svv2{100%{transform:rotate(360deg)}}</style><path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z" class="spinner_P7sC"/></svg> Exporting...';
+                  window.location.href = 'http://localhost:8000/export';
+                  setTimeout(() => { btn.innerHTML = oldText; }, 2000);
+              } else if (text === 'Approve' || text === 'Reject') {
+                  e.preventDefault();
+                  const container = btn.parentElement;
+                  if (container) {
+                      const rowKey = getRowKey(container);
+                      if (!rowKey) return; // Ignore if we can't identify the row
+                      const status = text === 'Approve' ? 'Approved' : 'Rejected';
+                      
+                      const history = JSON.parse(localStorage.getItem('nexus-leave-history') || '{}');
+                      history[rowKey] = status;
+                      localStorage.setItem('nexus-leave-history', JSON.stringify(history));
+                      
+                      container.innerHTML = status === 'Approved' 
+                          ? '<span style="color: var(--primary); font-weight: 600; font-size: 0.85rem; padding: 8px;">✓ Approved</span>'
+                          : '<span style="color: var(--destructive); font-weight: 600; font-size: 0.85rem; padding: 8px;">✕ Rejected</span>';
+                  }
+              }
+          });
+
+          // Persistent State Re-hydrator (MutationObserver)
+          const observer = new MutationObserver((mutations) => {
+              const history = JSON.parse(localStorage.getItem('nexus-leave-history') || '{}');
+              if (Object.keys(history).length === 0) return;
+
+              document.querySelectorAll('button').forEach(btn => {
+                  const text = btn.innerText.trim();
+                  if (text === 'Approve' || text === 'Reject') {
+                      const container = btn.parentElement;
+                      if (container) {
+                          const rowKey = getRowKey(container);
+                          if (history[rowKey]) {
+                              const status = history[rowKey];
+                              container.innerHTML = status === 'Approved' 
+                                  ? '<span style="color: var(--primary); font-weight: 600; font-size: 0.85rem; padding: 8px;">✓ Approved</span>'
+                                  : '<span style="color: var(--destructive); font-weight: 600; font-size: 0.85rem; padding: 8px;">✕ Rejected</span>';
+                          }
+                      }
+                  }
+              });
+          });
+          observer.observe(document.body, { childList: true, subtree: true });
+
+          fab.onclick = () => {
+              const isOpen = overlay.classList.contains('open');
+              if (isOpen) {
+                  overlay.classList.remove('open');
+              } else {
+                  overlay.classList.add('open');
+                  document.getElementById('copilot-input').focus();
+              }
+          };
+          document.getElementById('copilot-close').onclick = () => {
+              overlay.classList.remove('open');
+          };
+
+          const chat = document.getElementById('copilot-chat');
+          const input = document.getElementById('copilot-input');
+          const submit = document.getElementById('copilot-submit');
+
+          // Handle Suggestions
+          document.querySelectorAll('.suggestion-chip').forEach(chip => {
+              chip.onclick = () => {
+                  if (!overlay.classList.contains('open')) {
+                      fab.click();
+                  }
+                  input.value = chip.innerText;
+                  sendMessage();
+              };
+          });
+
+          const sendMessage = async () => {
+              const text = input.value.trim();
+              if (!text) return;
+              
+              chat.innerHTML += `<div class="msg-user">${text}</div>`;
+              input.value = '';
+              chat.scrollTop = chat.scrollHeight;
+
+              const loadingId = 'loading-' + Date.now();
+              chat.innerHTML += `<div class="msg-bot" id="${loadingId}">
+                  <div style="display: flex; gap: 4px; align-items: center; color: var(--muted-foreground)">
+                      <svg width="16" height="16" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><style>.spinner_P7sC{transform-origin:center;animation:spinner_svv2 .75s infinite linear}@keyframes spinner_svv2{100%{transform:rotate(360deg)}}</style><path d="M10.14,1.16a11,11,0,0,0-9,8.92A1.59,1.59,0,0,0,2.46,12,1.52,1.52,0,0,0,4.11,10.7a8,8,0,0,1,6.66-6.61A1.42,1.42,0,0,0,12,2.69h0A1.57,1.57,0,0,0,10.14,1.16Z" class="spinner_P7sC"/></svg>
+                      Translating to SQL via BM25...
+                  </div>
+              </div>`;
+              chat.scrollTop = chat.scrollHeight;
+
+              try {
+                  const res = await fetch('http://localhost:8000/copilot', {
+                      method: 'POST',
+                      headers: {'Content-Type': 'application/json'},
+                      body: JSON.stringify({text})
+                  });
+                  const data = await res.json();
+                  
+                  document.getElementById(loadingId).remove();
+                  
+                  let replyText = `<div style="color: var(--primary-strong); font-weight: 600; margin-bottom: 8px; font-size: 0.8rem; letter-spacing: 0.5px;">✓ TEXT TO SQL SUCCESS</div>`;
+                  
+                  if (data.generated_sql && data.generated_sql !== "N/A") {
+                      replyText += `<div style="background: var(--surface-2); padding: 8px; border-radius: 6px; font-family: monospace; font-size: 0.8rem; margin-bottom: 12px; border: 1px solid var(--border); color: var(--accent-teal)">${data.generated_sql}</div>`;
+                  }
+                  
+                  replyText += data.reply;
+
+                  chat.innerHTML += `<div class="msg-bot">${replyText}</div>`;
+                  chat.scrollTop = chat.scrollHeight;
+              } catch (e) {
+                  document.getElementById(loadingId).remove();
+                  chat.innerHTML += `<div class="msg-bot" style="color: var(--destructive);">Error connecting to Python backend. Is it running on port 8000?</div>`;
+                  chat.scrollTop = chat.scrollHeight;
+              }
+          };
+
+          submit.onclick = sendMessage;
+          input.onkeypress = (e) => {
+              if (e.key === 'Enter') sendMessage();
+          };
+          
+      }, 1500);
+  });
+</script>
+</body></html>
