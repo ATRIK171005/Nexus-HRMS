@@ -530,9 +530,18 @@
       setTimeout(() => {
           // Find notification bell
           const bellSvg = document.querySelector('.lucide-bell');
-          if (!bellSvg) return;
-          const bellBtn = bellSvg.closest('button');
-          if (!bellBtn) return;
+          const bellBtn = bellSvg ? bellSvg.closest('button') : null;
+          if (bellBtn) {
+              const redDot = bellBtn.querySelector('.bg-destructive');
+              if (redDot) {
+                  redDot.className = 'absolute flex items-center justify-center text-[11px] font-extrabold text-white';
+                  redDot.innerText = '3';
+                  // Position exactly over the top right corner of the SVG (button has 10px padding)
+                  redDot.style.right = '8px';
+                  redDot.style.top = '6px';
+                  redDot.style.background = 'transparent';
+              }
+          }
           
           const headerActions = bellBtn.parentElement;
           headerActions.style.display = 'flex';
@@ -705,6 +714,135 @@
               <div class="dropdown-footer" style="color:var(--destructive)">Log out</div>
           `);
 
+          
+          // Settings Modals Logic
+          const createModal = (id, title, icon, bodyHtml) => {
+              const overlay = document.createElement('div');
+              overlay.className = 'nexus-modal-overlay';
+              overlay.id = id;
+              overlay.innerHTML = `
+                <div class="nexus-modal">
+                    <div class="nexus-modal-header">
+                        <div class="nexus-modal-title">
+                            ${icon}
+                            ${title}
+                        </div>
+                        <button class="nexus-modal-close">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+                        </button>
+                    </div>
+                    <div class="nexus-modal-body">
+                        ${bodyHtml}
+                    </div>
+                </div>
+              `;
+              document.body.appendChild(overlay);
+              
+              overlay.querySelector('.nexus-modal-close').onclick = () => {
+                  overlay.classList.remove('open');
+              };
+              overlay.onclick = (e) => {
+                  if (e.target === overlay) overlay.classList.remove('open');
+              };
+              
+              // Handle toggles inside modal
+              overlay.querySelectorAll('.nexus-toggle').forEach(t => {
+                  t.onclick = () => t.classList.toggle('active');
+              });
+              
+              return overlay;
+          };
+
+          const layoutModal = createModal('modal-layout', 'Dashboard Layout', '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"/><line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/></svg>', `
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Compact Mode</h4>
+                      <p>Reduce padding to fit more data on screen</p>
+                  </div>
+                  <div class="nexus-toggle"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Show Quick Actions</h4>
+                      <p>Display floating quick action buttons on tables</p>
+                  </div>
+                  <div class="nexus-toggle active"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Collapsible Sidebar</h4>
+                      <p>Automatically collapse sidebar on smaller screens</p>
+                  </div>
+                  <div class="nexus-toggle active"></div>
+              </div>
+          `);
+
+          const appearanceModal = createModal('modal-appearance', 'Appearance Settings', '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M12 20h9"/><path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"/></svg>', `
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Midnight Slate Theme</h4>
+                      <p>The default dark blue aesthetic for Nexus HRMS</p>
+                  </div>
+                  <div class="nexus-toggle active"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>System Sync</h4>
+                      <p>Automatically switch themes based on OS preference</p>
+                  </div>
+                  <div class="nexus-toggle"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Reduce Animations</h4>
+                      <p>Disable hover effects and transitions for better performance</p>
+                  </div>
+                  <div class="nexus-toggle"></div>
+              </div>
+          `);
+
+          const securityModal = createModal('modal-security', 'Security & Privacy', '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="var(--primary)" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/></svg>', `
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Two-Factor Authentication (2FA)</h4>
+                      <p>Require an extra security code when logging in</p>
+                  </div>
+                  <div class="nexus-toggle active"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Session Timeout</h4>
+                      <p>Automatically log out after 30 minutes of inactivity</p>
+                  </div>
+                  <div class="nexus-toggle active"></div>
+              </div>
+              <div class="settings-row">
+                  <div class="settings-info">
+                      <h4>Data Sharing</h4>
+                      <p>Allow anonymous telemetry for app improvements</p>
+                  </div>
+                  <div class="nexus-toggle"></div>
+              </div>
+              <div style="margin-top: 24px; text-align: right;">
+                  <button style="background: var(--destructive); color: white; padding: 10px 16px; border-radius: 8px; border: none; font-weight: 600; cursor: pointer;">Revoke All Sessions</button>
+              </div>
+          `);
+
+          // Hook up clicks to open modals
+          document.addEventListener('click', (e) => {
+              const dropItem = e.target.closest('.dropdown-item');
+              if (!dropItem) return;
+              
+              const text = dropItem.innerText.trim();
+              if (text === 'Dashboard Layout') {
+                  layoutModal.classList.add('open');
+              } else if (text === 'Appearance') {
+                  appearanceModal.classList.add('open');
+              } else if (text === 'Security & Privacy') {
+                  securityModal.classList.add('open');
+              }
+          });
+
           // Build Copilot FAB
           const fab = document.createElement('button');
           fab.id = 'copilot-fab';
@@ -728,12 +866,12 @@
                 <div class="msg-bot">Hi there! Try uploading a CSV with the "Add File" button above, then ask me to query it!</div>
             </div>
             <div id="copilot-suggestions">
-                <div class="suggestion-chip">Hi!</div>
                 <div class="suggestion-chip">What can you do?</div>
+                <div class="suggestion-chip">Summarize data</div>
+                <div class="suggestion-chip">Draft an email</div>
                 <div class="suggestion-chip">Average salary by department?</div>
                 <div class="suggestion-chip">Count all employees?</div>
-                <div class="suggestion-chip">Who is in Engineering?</div>
-                <div class="suggestion-chip">Who is the HR Manager?</div>
+                <div class="suggestion-chip">Organise all the stuff</div>
                 <div class="suggestion-chip">Who has the highest salary?</div>
             </div>
             <div id="copilot-input-container">
@@ -743,6 +881,7 @@
                 </button>
             </div>
           `;
+          document.body.appendChild(overlay);
           // Helper to uniquely identify a row across different UI layouts
           const getRowKey = (container) => {
               let el = container;
